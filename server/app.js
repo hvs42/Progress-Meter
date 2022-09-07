@@ -13,15 +13,7 @@ app.use(express.json());
 //we link the router file to make authentication easy
 app.use(require('./router/auth'));
 
-const db = process.env.DATABASE;
-
-mongoose
-  .connect(db, {
-    useNewURLParser: true,
-    useUnifiedTopology:true
-  })
-  .then(() => console.log("💻 Mondodb Connected"))
-  .catch(err => console.error(err));
+require('./db/conn');
 
 
 //Middlewares
